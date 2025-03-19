@@ -1,6 +1,5 @@
 package com.m06.uf4.consultar.api.app;
 
-import jakarta.annotation.PostConstruct;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +14,10 @@ import java.util.HashMap;
 @RestController
 public class EmojisRestController {
 
-    private final HashMap<String, String> emojisUpgrade = new HashMap<>();
+    private static final HashMap<String, String> emojisUpgrade = new HashMap<>();
 
-    @PostConstruct
-    public void loadEmojisOnHashMap() {
-
-        //Linea evolutiva de agua
+    // Linea evolutiva de agua
+    static {
         emojisUpgrade.put("💧", "🥛");
         emojisUpgrade.put("🥛", "🚰");
         emojisUpgrade.put("🚰", "🚚");
@@ -35,20 +32,20 @@ public class EmojisRestController {
         emojisUpgrade.put("🧬", "🤖");
         emojisUpgrade.put("🤖", "🧠");
 
-        //Linea evolutiva de fuego
+        // Linea evolutiva de fuego
         emojisUpgrade.put("🔥", "🍳");
         emojisUpgrade.put("🍳", "🥓");
         emojisUpgrade.put("🥓", "🍔");
-        emojisUpgrade.put("🍔", "🍕");  
-        emojisUpgrade.put("🍕", "🌭"); 
-        emojisUpgrade.put("🌭", "🍖");  
-        emojisUpgrade.put("🍖", "🍲"); 
-        emojisUpgrade.put("🍲", "🍱");  
-        emojisUpgrade.put("🍱", "🥘");  
-        emojisUpgrade.put("🥘", "🍽️"); 
-        emojisUpgrade.put("🍽️", "🎉");  
-        emojisUpgrade.put("🎉", "🍻");  
-        emojisUpgrade.put("🍻", "🎆"); 
+        emojisUpgrade.put("🍔", "🍕");
+        emojisUpgrade.put("🍕", "🌭");
+        emojisUpgrade.put("🌭", "🍖");
+        emojisUpgrade.put("🍖", "🍲");
+        emojisUpgrade.put("🍲", "🍱");
+        emojisUpgrade.put("🍱", "🥘");
+        emojisUpgrade.put("🥘", "🍽️");
+        emojisUpgrade.put("🍽️", "🎉");
+        emojisUpgrade.put("🎉", "🍻");
+        emojisUpgrade.put("🍻", "🎆");
     }
 
     @GetMapping
